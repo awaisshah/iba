@@ -2235,10 +2235,7 @@ ul.faq {
 }
 /* Login / Signup */
 
-.login,
-.signup {
-    min-height: 100vh;
-}
+
 .tool-login,
 .tool-signup {
     position: absolute;
