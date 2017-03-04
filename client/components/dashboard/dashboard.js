@@ -23,12 +23,17 @@
 
         this.toggleLeft = buildToggler('left');
         this.toggleRight = buildToggler('right');
+        this.CustomerView = false;
+        this.productName = "";
+        this.productQuantity = 0;
+        this.dateToDeliver = 0;
+        this.user = firebase.auth().currentUser.uid;
 
         function buildToggler(componentId) {
             return function() {
                 $mdSidenav(componentId).toggle();
             };
-        }
+        };
 
 
 
@@ -40,8 +45,27 @@
             }, function(error) {
                 console.error('Sign Out Error', error);
             });
-        }
+        };
 
+        this.customers = function () {
+            console.log("Customers");
+            this.CustomerView = !this.CustomerView;
+        };
+
+
+        this.admin = function() {
+            console.log("admin");
+        };
+
+        this.placeOrder = function() {
+            console.log("place order");
+
+            firebase.database().ref('Orders/' + vm.user).set({
+                username: name,
+                email: email,
+                profile_picture : imageUrl
+            });
+        };
 
 
     }

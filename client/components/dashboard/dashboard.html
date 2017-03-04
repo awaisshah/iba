@@ -7,7 +7,7 @@
 </div>
 -->
 
-<div ng-controller="DashboardController as dashboard" layout="column" style="height: 500px;" ng-cloak>
+<div ng-controller="DashboardController as dashboard" layout="column" style="height: 1000px;" ng-cloak>
 
     <section layout="row" flex>
 
@@ -15,28 +15,38 @@
                     md-disable-backdrop md-whiteframe="4">
 
             <md-toolbar class="md-theme-indigo">
-                <h1 class="md-toolbar-tools">Disabled Backdrop</h1>
+                <h1 class="md-toolbar-tools">Options</h1>
             </md-toolbar>
 
             <md-content layout-margin>
-                <p>
-                    This sidenav is not showing any backdrop, where users can click on it, to close the sidenav.
-                </p>
-                <md-button ng-click="dashboard.toggleLeft()" class="md-accent">
-                    Close this Sidenav
-                </md-button>
+                <div layout="column" layout-align="top left">
+
+
+
+
+                    <md-button ng-click="dashboard.customers()">Customer</md-button>
+
+                    <md-button ng-click="dashboard.admin()">Admin</md-button>
+
+                    <md-button ng-click="dashboard.logout()">LOGOUT</md-button>
+
+                    <md-button ng-click="dashboard.toggleLeft()" class="md-accent">
+                        Close this Sidenav
+                    </md-button>
+
+                </div>
+
+
+
+
             </md-content>
 
         </md-sidenav>
 
         <md-content flex layout-padding>
 
-            <div layout="column" layout-align="top center">
-                <p>
-                    Developers can also disable the backdrop of the sidenav.<br/>
-                    This will disable the functionality to click outside to close the sidenav.
-                    <button ng-click="dashboard.logout()">LOGOUT</button>
-                </p>
+            <div layout="column" layout-align="top left">
+
 
                 <div>
                     <md-button ng-click="dashboard.toggleLeft()" class="md-raised">
@@ -45,6 +55,39 @@
                 </div>
 
             </div>
+
+
+            <div ng-if="dashboard.CustomerView"  layout="column" layout-align="top center">
+
+                <md-toolbar class="md-theme-indigo">
+                    <h1 class="md-toolbar-tools">Place Order</h1>
+                </md-toolbar>
+
+
+                <md-input-container>
+                    <label>Product Name</label>
+                    <input ng-model="dashboard.productName" type="text"/>
+                </md-input-container>
+
+                <md-input-container>
+                    <label>Quantity</label>
+                    <input ng-model="dashboard.productQuantity" type="number"/>
+                </md-input-container>
+
+                <md-input-container>
+                    <label>Date To Deliver</label>
+                    <input ng-model="dashboard.dateToDeliver" type="date"/>
+                </md-input-container>
+
+                <md-button ng-click="dashboard.placeOrder()" class="md-raised">
+                    Place Order
+                </md-button>
+
+
+            </div>
+
+
+
 
         </md-content>
 

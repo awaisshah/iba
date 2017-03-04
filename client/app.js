@@ -4,7 +4,7 @@
 
 (function () {
 
-    angular.module("myApp", ['ui.router'])
+    angular.module("myApp", ['ui.router', 'ngMaterial'])
         .controller("AppController", ['$state', 'UserService', AppController]);
 
     function AppController($state, UserService) {
