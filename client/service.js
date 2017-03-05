@@ -18,6 +18,7 @@ angular.module('myApp')
 
                 } else {
                     console.log("FALSE");
+                    $state.go('login')
                     return false;
                 }
             });

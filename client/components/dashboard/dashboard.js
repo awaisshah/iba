@@ -29,7 +29,37 @@
         this.dateToDeliver = 0;
         this.customerOrders = [{}];
 
-        this.user = firebase.auth().currentUser.uid;
+        /*Get User Session*/
+
+        function allStorage() {
+
+            var values = [],
+                keys = Object.keys(localStorage),
+                i = keys.length;
+
+            while ( i-- ) {
+                values.push( localStorage.getItem(keys[i]) );
+            }
+
+            return values;
+        }
+
+        var arr = allStorage();
+        
+        if(arr.length)
+            var myObj = JSON.parse(arr[1]);
+        if(firebase.auth().currentUser){
+            this.user = firebase.auth().currentUser.uid;
+        }
+        else {
+            debugger;
+            if(myObj){
+                this.user = myObj.uid
+            }else {
+                $state.go('login');
+            }
+        }
+
         var orderRef = firebase.database().ref('order/' + vm.user + '/');
         console.log("USER"+this.user);
 
