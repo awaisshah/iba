@@ -6,7 +6,7 @@
 
 <div ng-controller="DashboardController as dashboard" layout="column" style="height: 1000px;" ng-cloak>
     <md-toolbar class="md-theme-indigo">
-        <h1 class="md-toolbar-tools" layout="row" layout-align="center center" >INTEKHAB SUPPLY</h1>
+        <h1 class="md-toolbar-tools" layout="row" layout-align="center center">INTEKHAB SUPPLY</h1>
     </md-toolbar>
     <section layout="row" flex>
 
@@ -17,7 +17,7 @@
                 md-whiteframe="4">
 
             <md-toolbar class="md-theme-indigo">
-                <h1 class="md-toolbar-tools" layout="row" layout-align="center center" >Sidenav Left</h1>
+                <h1 class="md-toolbar-tools" layout="row" layout-align="center center">Sidenav Left</h1>
             </md-toolbar>
             <md-content layout-margin>
                 <div layout="column" layout-align="top left">
@@ -54,33 +54,24 @@
                     <h1 class="md-toolbar-tools">View Order</h1>
                 </md-toolbar>
 
-                    <table class="table  table-striped bordered">
-                        <thead>
-                        <tr>
-                            <th data-field="id">Name</th>
-                            <th data-field="name">Item Name</th>
-                            <th data-field="price">Item Price</th>
-                        </tr>
-                        </thead>
+                <table class="table  table-striped bordered">
+                    <thead>
+                    <tr>
+                        <th data-field="id">Product Name</th>
+                        <th data-field="name">Product Qunatity</th>
+                    </tr>
+                    </thead>
 
-                        <tbody>
-                        <tr>
-                            <td>Alvin</td>
-                            <td>Eclair</td>
-                            <td>$0.87</td>
-                        </tr>
-                        <tr>
-                            <td>Alan</td>
-                            <td>Jellybean</td>
-                            <td>$3.76</td>
-                        </tr>
-                        <tr>
-                            <td>Jonathan</td>
-                            <td>Lollipop</td>
-                            <td>$7.00</td>
-                        </tr>
-                        </tbody>
-                    </table>
+
+                    <tbody>
+
+                            <tr ng-repeat="i in dashboard.products">
+                                <td>{{i.productName}}</td>
+                                <td>{{i.productQuantity}}</td>
+                            </tr>
+
+                    </tbody>
+                </table>
 
 
             </div>
@@ -113,8 +104,6 @@
                 </div>
 
 
-
-
                 <button ng-click="dashboard.incrementCustomerOrder()">add</button>
                 <!--<a class="btn-floating btn-large waves-effect waves-light red" ><i class="material-icons">add</i></a>-->
 
@@ -123,10 +112,7 @@
                 </md-button>
 
 
-
             </div>
-
-
 
 
         </md-content>

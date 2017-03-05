@@ -12,7 +12,7 @@
 (function () {
 
     angular.module("myApp")
-        .controller("DashboardController", ['$state', '$timeout', '$mdSidenav' ,DashboardController]);
+        .controller("DashboardController", ['$state', '$timeout', '$mdSidenav',DashboardController]);
 
     function DashboardController($state, $timeout, $mdSidenav) {
         var vm = this;
@@ -28,6 +28,7 @@
         this.productQuantity = 0;
         this.dateToDeliver = 0;
         this.customerOrders = [{}];
+        this.products = [];
 
         /*Get User Session*/
 
@@ -121,6 +122,8 @@
             snapshot.forEach(function (snap) {
                 console.log(snap.val());
                 console.log(snap.key);
+                vm.products.push(snap.val());
+
             })
         });
 
