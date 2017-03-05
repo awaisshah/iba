@@ -6,3 +6,9 @@ body {
     background-size: cover;
     z-index: -1000;
 }
+
+.errorStyles {
+
+    font-size: 10px;
+    color: red;
+}

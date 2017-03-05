@@ -19,8 +19,8 @@
                                 <input class="validate" type="text" id="name" ng-model="signup.name" ng-minlength="4"
                                        ng-maxlength="25" name="name" required/>
                                 <label for="name">Name</label>
-                                <p ng-show="SignupForm.name.$error.minlength">name is too short.</p>
-                                <p ng-show="SignupForm.name.$error.maxlength">name is too long.</p>
+                                <p ng-show="SignupForm.name.$error.minlength" class="errorStyles">name is too short.</p>
+                                <p ng-show="SignupForm.name.$error.maxlength" class="errorStyles">name is too long.</p>
 
                             </div>
 
@@ -28,7 +28,7 @@
                                 <i class="ion-android-contact prefix"></i>
                                 <input class="validate" type="email" id="email" ng-model="signup.email" name="email" required/>
                                 <label for="email">E-mail</label>
-                                <p ng-show="SignupForm.email.$error.email">In correct email.</p>
+                                <p ng-show="SignupForm.email.$error.email" class="errorStyles">In correct email.</p>
                             </div>
 
                             <div class="input-field" style="margin-bottom:20px;">
@@ -36,8 +36,8 @@
                                 <input class="validate" id="login-psw" type="password" ng-model="signup.password" ng-minlength="6" ng-maxlength="25"
                                        name="password"/>
                                 <label for="login-psw">Password</label>
-                                <p ng-show="SignupForm.password.$error.minlength">password is too short.</p>
-                                <p ng-show="SignupForm.password.$error.maxlength">password is too long.</p>
+                                <p ng-show="SignupForm.password.$error.minlength" class="errorStyles">password is too short.</p>
+                                <p ng-show="SignupForm.password.$error.maxlength" class="errorStyles">password is too long.</p>
                             </div>
 
                         </form>

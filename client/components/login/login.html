@@ -18,7 +18,7 @@
                                 <i class="ion-android-contact prefix"></i>
                                 <input class="validate" type="email" id="email" ng-model="login.email" name="email" required/>
                                 <label for="email">E-mail</label>
-                                <p ng-show="LoginForm.email.$error.email">In correct email.</p>
+                                <p ng-show="LoginForm.email.$error.email" class="errorStyles">In correct email.</p>
                             </div>
 
 
@@ -27,8 +27,8 @@
                                 <input class="validate" id="login-psw" type="password" ng-model="login.password" ng-minlength="6" ng-maxlength="25"
                                        name="password"/>
                                 <label for="login-psw">Password</label>
-                                <p ng-show="LoginForm.password.$error.minlength">password is too short.</p>
-                                <p ng-show="LoginForm.password.$error.maxlength">password is too long.</p>
+                                <p ng-show="LoginForm.password.$error.minlength" class="errorStyles">password is too short.</p>
+                                <p ng-show="LoginForm.password.$error.maxlength" class="errorStyles">password is too long.</p>
                             </div>
 
                         </form>
