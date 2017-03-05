@@ -23,6 +23,7 @@
         this.toggleLeft = buildToggler('left');
         this.toggleRight = buildToggler('right');
         this.CustomerView = false;
+        this.CustomerViewForOrder = false;
         this.productName = "";
         this.productQuantity = 0;
         this.dateToDeliver = 0;
@@ -88,9 +89,16 @@
 
         this.customers = function () {
             console.log("Customers");
+            this.CustomerViewForOrder = false;
             this.CustomerView = !this.CustomerView;
+
         };
 
+        this.customersView = function () {
+            console.log("ADD Fields");
+            this.CustomerView = false;
+                this.CustomerViewForOrder = !this.CustomerViewForOrder;
+        };
 
         this.admin = function() {
             console.log("admin");
