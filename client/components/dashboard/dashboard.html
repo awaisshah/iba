@@ -38,16 +38,6 @@
 
         <md-content flex layout-padding>
 
-            <div layout="column" layout-align="top left">
-
-                <div class="fixed-action-btn horizontal click-to-toggle" ng-click="dashboard.toggleLeft()">
-                    <a class="btn-floating btn-large red">
-                        <i class="material-icons">menu</i>
-                    </a>
-                </div>
-
-            </div>
-
 
             <div ng-if="dashboard.CustomerView" layout="column" layout-align="top center">
                 <md-toolbar class="md-theme-indigo">
@@ -104,7 +94,7 @@
                 </div>
 
 
-                <button ng-click="dashboard.incrementCustomerOrder()">add</button>
+                <md-button  class="md-raised" ng-click="dashboard.incrementCustomerOrder()">add</md-button>
                 <!--<a class="btn-floating btn-large waves-effect waves-light red" ><i class="material-icons">add</i></a>-->
 
                 <md-button ng-click="dashboard.placeOrder()" class="md-raised">

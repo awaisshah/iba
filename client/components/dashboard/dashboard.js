@@ -23,7 +23,7 @@
         this.toggleLeft = buildToggler('left');
         this.toggleRight = buildToggler('right');
         this.CustomerView = false;
-        this.CustomerViewForOrder = false;
+        this.CustomerViewForOrder = true;
         this.productName = "";
         this.productQuantity = 0;
         this.dateToDeliver = 0;
@@ -109,8 +109,11 @@
             console.log("place order");
             console.log(vm.customerOrders);
             for(var i = 0; i < vm.customerOrders.length; i++)
-                firebase.database().ref('orders/' + vm.user+'/').push(vm.customerOrders[i]);
+                firebase.database().ref('orders/' + vm.user+'/').push(vm.customerOrders[i])
 
+
+            this.CustomerViewForOrder = false;
+            this.CustomerView = true;
         };
 
 
@@ -118,14 +121,17 @@
 
 
         var orderRef = firebase.database().ref('orders/' + vm.user + '/');
-        orderRef.on('value', function(snapshot) {
-            snapshot.forEach(function (snap) {
-                console.log(snap.val());
-                console.log(snap.key);
-                vm.products.push(snap.val());
 
-            })
-        });
+            orderRef.on('value', function(snapshot) {
+                snapshot.forEach(function (snap) {
+                    console.log(snap.val());
+                    console.log(snap.key);
+                    vm.products.push(snap.val());
+
+                })
+            });
+
+
 
         var userNmaeRef = firebase.database().ref('users/' + vm.user + '/');
         userNmaeRef.on('value', function(snapshot) {
