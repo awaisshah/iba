@@ -20,7 +20,6 @@
         var user = firebase.auth().currentUser;
         console.log(user);
 
-
         this.toggleLeft = buildToggler('left');
         this.toggleRight = buildToggler('right');
         this.CustomerView = false;
@@ -45,7 +44,7 @@
         }
 
         var arr = allStorage();
-        
+
         if(arr.length)
             var myObj = JSON.parse(arr[1]);
         if(firebase.auth().currentUser){
@@ -60,7 +59,7 @@
             }
         }
 
-        var orderRef = firebase.database().ref('order/' + vm.user + '/');
+
         console.log("USER"+this.user);
 
         function buildToggler(componentId) {
@@ -106,6 +105,8 @@
         };
 
 
+        //Firebase Pull Work
+
 
         var orderRef = firebase.database().ref('orders/' + vm.user + '/');
         orderRef.on('value', function(snapshot) {
@@ -115,7 +116,13 @@
             })
         });
 
+        var userNmaeRef = firebase.database().ref('users/' + vm.user + '/');
+        userNmaeRef.on('value', function(snapshot) {
 
+            console.log(snapshot.val());
+            console.log(snapshot.key);
+
+        });
 
     }
 
