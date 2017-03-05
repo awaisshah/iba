@@ -1,9 +1,6 @@
 <!--
 <div ng-controller="DashboardController as dashboard">
     <p>DashboardController</p>
-
-
-
 </div>
 -->
 
@@ -22,8 +19,6 @@
                 <div layout="column" layout-align="top left">
 
 
-
-
                     <md-button ng-click="dashboard.customers()">Customer</md-button>
 
                     <md-button ng-click="dashboard.admin()">Admin</md-button>
@@ -37,8 +32,6 @@
                 </div>
 
 
-
-
             </md-content>
 
         </md-sidenav>
@@ -47,37 +40,46 @@
 
             <div layout="column" layout-align="top left">
 
-
-                <div>
-                    <md-button ng-click="dashboard.toggleLeft()" class="md-raised">
-                        Toggle Sidenav
-                    </md-button>
+                <div class="fixed-action-btn horizontal click-to-toggle" ng-click="dashboard.toggleLeft()">
+                    <a class="btn-floating btn-large red">
+                        <i class="material-icons">menu</i>
+                    </a>
                 </div>
 
             </div>
 
 
-            <div ng-if="dashboard.CustomerView"  layout="column" layout-align="top center">
+            <div ng-if="dashboard.CustomerView" layout="column" layout-align="top center">
 
                 <md-toolbar class="md-theme-indigo">
                     <h1 class="md-toolbar-tools">Place Order</h1>
                 </md-toolbar>
 
+                <div layout="column" layout-align="top center">
 
-                <md-input-container>
-                    <label>Product Name</label>
-                    <input ng-model="dashboard.productName" type="text"/>
-                </md-input-container>
+                    <div ng-repeat="i in dashboard.customerOrders track by $index">
+                        <md-input-container>
+                            <label>Product Name</label>
+                            <input ng-model="dashboard.customerOrders[$index].productName" type="text"/>
+                        </md-input-container>
 
-                <md-input-container>
-                    <label>Quantity</label>
-                    <input ng-model="dashboard.productQuantity" type="number"/>
-                </md-input-container>
+                        <md-input-container>
+                            <label>Quantity</label>
+                            <input ng-model="dashboard.customerOrders[$index].productQuantity" type="number"/>
+                        </md-input-container>
 
-                <md-input-container>
-                    <label>Date To Deliver</label>
-                    <input ng-model="dashboard.dateToDeliver" type="date"/>
-                </md-input-container>
+                        <md-input-container>
+                            <label>Date To Deliver</label>
+                            <input ng-model="dashboard.customerOrders[$index].dateToDeliver" type="date"/>
+                        </md-input-container>
+                    </div>
+                </div>
+
+
+
+
+                <button ng-click="dashboard.incrementCustomerOrder()">add</button>
+                <!--<a class="btn-floating btn-large waves-effect waves-light red" ><i class="material-icons">add</i></a>-->
 
                 <md-button ng-click="dashboard.placeOrder()" class="md-raised">
                     Place Order
@@ -86,7 +88,35 @@
 
             </div>
 
+            <div>
+                <table class="bordered">
+                    <thead>
+                    <tr>
+                        <th data-field="id">Name</th>
+                        <th data-field="name">Item Name</th>
+                        <th data-field="price">Item Price</th>
+                    </tr>
+                    </thead>
 
+                    <tbody>
+                    <tr>
+                        <td>Alvin</td>
+                        <td>Eclair</td>
+                        <td>$0.87</td>
+                    </tr>
+                    <tr>
+                        <td>Alan</td>
+                        <td>Jellybean</td>
+                        <td>$3.76</td>
+                    </tr>
+                    <tr>
+                        <td>Jonathan</td>
+                        <td>Lollipop</td>
+                        <td>$7.00</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
 
 
         </md-content>
@@ -94,4 +124,3 @@
     </section>
 
 </div>
-
